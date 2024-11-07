@@ -11,10 +11,10 @@ provider:
 
 functions:
   scrape_earthquakes:
-    handler: scrap_earthquakes.lambda_handler
+    handler: scrap_earthquakes.lambda_handler  # Asegúrate de que el archivo sea "scrap_earthquakes.py" y la función "lambda_handler"
     package:
       include:
-        - ./**
+        - scrap_earthquakes.py
     events:
       - http:
           path: /scrape/earthquakes
@@ -35,4 +35,3 @@ resources:
           - AttributeName: id
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST
-
