@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import boto3
 import uuid
+import six
 
 def lambda_handler(event, context):
     # URL de la página web que contiene los sismos
