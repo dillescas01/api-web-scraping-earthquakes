@@ -42,7 +42,7 @@ def lambda_handler(event, context):
     # Eliminar todos los elementos de la tabla antes de agregar los nuevos
     scan = table.scan()
     with table.batch_writer() as batch:
-        for each in scan['Items']:
+        for each in scan.get('Items', []):
             batch.delete_item(
                 Key={
                     'id': each['id']
